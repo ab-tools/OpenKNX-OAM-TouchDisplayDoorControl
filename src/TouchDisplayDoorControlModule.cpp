@@ -19,6 +19,9 @@ const std::string TouchDisplayDoorControlModule::version()
 void TouchDisplayDoorControlModule::setup()
 {
     TouchDisplayDoorControlModule::doorState = DoorState::UNDEFINED;
+
+    TouchDisplayDoorControlModule::_touchDisplayModule->initUi();
+    ui_init();
 }
 
 void TouchDisplayDoorControlModule::update_button_states(DoorState newDoorState)
@@ -81,6 +84,7 @@ void TouchDisplayDoorControlModule::ui_Main_event(lv_event_t * event)
 
 void TouchDisplayDoorControlModule::loop()
 {
+    TouchDisplayDoorControlModule::_touchDisplayModule->loopUi();
 }
 
 void TouchDisplayDoorControlModule::processInputKo(GroupObject& iKo)
